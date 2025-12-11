@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="icon.png" type="image/png">
     <title>Hill Balar | Portfolio</title>
+
     <style>
-        /* Global Styles */
         body {
             margin: 0;
             font-family: "Segoe UI", Tahoma, sans-serif;
@@ -22,7 +22,6 @@
             color: white;
             text-align: center;
             padding: 80px 20px;
-            transition: background 0.5s, color 0.5s;
         }
 
         header h1 {
@@ -31,17 +30,11 @@
             animation: fadeInDown 1.5s ease;
         }
 
-        header p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
         nav a {
             color: white;
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s;
         }
 
         nav a:hover {
@@ -52,42 +45,43 @@
         .toggle-btn {
             display: inline-block;
             margin-top: 20px;
-            text-decoration: none;
-            color: #0a192f;
-            background: #ffcc00;
             padding: 12px 20px;
             border-radius: 30px;
             font-weight: bold;
-            transition: 0.3s;
+            text-decoration: none;
             cursor: pointer;
+            transition: 0.3s;
         }
 
-        .resume-btn:hover,
-        .toggle-btn:hover {
+        .resume-btn {
+            background: #ffcc00;
+            color: #0a192f;
+        }
+
+        .resume-btn:hover {
             background: #ffaa00;
-            transform: scale(1.05);
         }
 
-        /* Sections */
+        .toggle-btn {
+            background: white;
+            color: #0a192f;
+        }
+
         section {
             max-width: 1100px;
             margin: 40px auto;
             padding: 20px;
-            transition: background 0.5s, color 0.5s;
         }
 
         h2 {
             color: #0a192f;
             border-left: 5px solid #ffcc00;
             padding-left: 10px;
-            margin-bottom: 20px;
-            transition: color 0.5s, border-color 0.5s;
         }
 
-        /* Cards */
         .card-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
@@ -96,23 +90,32 @@
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, background 0.5s, color 0.5s;
+            transition: 0.3s;
         }
 
         .card:hover {
             transform: translateY(-8px);
         }
 
-        /* Contact */
+        .project-links a {
+            margin-right: 10px;
+            color: #1f4068;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .project-links a:hover {
+            color: #ff9900;
+        }
+
         .contact a {
             display: inline-block;
             margin: 10px;
-            text-decoration: none;
-            color: white;
-            background: #1f4068;
             padding: 10px 18px;
             border-radius: 25px;
-            transition: 0.3s;
+            background: #1f4068;
+            color: white;
+            text-decoration: none;
         }
 
         .contact a:hover {
@@ -125,11 +128,32 @@
             padding: 20px;
             background: #1e293b;
             color: #94a3b8;
-            margin-top: 40px;
-            transition: background 0.5s, color 0.5s;
         }
 
-        /* Animations */
+        /* NIGHT MODE */
+        body.night-mode {
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        body.night-mode header {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+        }
+
+        body.night-mode .card {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e2e8f0;
+        }
+
+        body.night-mode h2 {
+            color: #38bdf8;
+            border-left-color: #38bdf8;
+        }
+
+        body.night-mode footer {
+            background: #111827;
+        }
+
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -141,139 +165,137 @@
                 transform: translateY(0);
             }
         }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-
-            nav {
-                display: block;
-                margin-top: 15px;
-            }
-        }
-
-        /* Night Mode Styles */
-        body.night-mode {
-            background: #0f172a;
-            color: #e2e8f0;
-        }
-
-        body.night-mode header {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            color: #e2e8f0;
-        }
-
-        body.night-mode h2 {
-            color: #38bdf8;
-            border-left-color: #38bdf8;
-        }
-
-        body.night-mode .card {
-            background: rgba(255, 255, 255, 0.05);
-            color: #e2e8f0;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-        }
-
-        body.night-mode .contact a {
-            background: #1e293b;
-            color: #e2e8f0;
-        }
-
-        body.night-mode .contact a:hover {
-            background: #38bdf8;
-            color: #0f172a;
-        }
-
-        body.night-mode footer {
-            background: #111827;
-            color: #94a3b8;
-        }
     </style>
 </head>
 
 <body>
 
-    <!-- Hero Section -->
+    <!-- HERO -->
     <header>
         <h1>Hill Balar</h1>
-        <p>BCA graduate | Full Stack Developer</p>
+        <p>BCA Graduate | Full Stack Developer (MERN)</p>
+
         <nav>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#education">Education</a>
+            <a href="#certificate">Certificates</a>
             <a href="#contact">Contact</a>
-            <a href="#Certificate">Certificate</a>
         </nav>
-        <br>
+
         <a class="resume-btn" href="resume.pdf" download>📄 Download Resume</a>
         <button class="toggle-btn" onclick="toggleNightMode()">🌙 Night Mode</button>
     </header>
 
-    <!-- About Section -->
+    <!-- ABOUT -->
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello! I’m Hill Balar, a BCA graduate with a strong foundation in programming, web development, and problem-solving. I have hands-on experience in C, C++, Python, PHP, HTML, CSS, and MySQL, and I am continuously enhancing my skills in DSA, AI/ML, and full-stack development.</p>
-        <p>I enjoy creating practical solutions through coding and working on projects that challenge me to think critically and implement innovative ideas. I am passionate about learning new technologies and contributing to dynamic tech environments where I can grow as a developer.</p>
+        <p>
+            I’m Hill Balar, a passionate Full Stack Developer skilled in building modern, responsive, 
+            and user-focused web applications using the MERN stack. I love creating real-world solutions 
+            and continuously learning new tools and technologies.
+        </p>
+        <p>
+            I have completed multiple hands-on projects including a Currency Strength Meter, 
+            Currency Converter, Project Management System, and Market Alert Note. 
+            I enjoy problem-solving, clean UI/UX, and backend API development.
+        </p>
     </section>
 
-    <!-- Skills Section -->
+    <!-- SKILLS -->
     <section id="skills">
         <h2>Skills</h2>
+
         <div class="card-container">
-            <div class="card">C, C++</div>
-            <div class="card">Python</div>
-            <div class="card">PHP, MySQL</div>
-            <div class="card">HTML, CSS, JavaScript</div>
-            <div class="card">Problem Solving, DSA</div>
+            <div class="card"><b>Frontend:</b> HTML, CSS, JavaScript, React.js</div>
+            <div class="card"><b>Backend:</b> Node.js, Express.js</div>
+            <div class="card"><b>Database:</b> MongoDB, MySQL</div>
+            <div class="card"><b>Programming:</b> C, C++, Python, PHP</div>
+            <div class="card"><b>Tools:</b> Git, GitHub, Postman, Vercel, Render</div>
+            <div class="card"><b>Concepts:</b> REST APIs, Authentication (JWT), Problem Solving, DSA</div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- PROJECTS -->
     <section id="projects">
         <h2>Projects</h2>
+
         <div class="card-container">
-            <div class="card"><b>E-Learning System</b><br>Final Year Project for BCA.</div>
-            <div class="card"><a href="https://csm-sigma.vercel.app/"
-                    style="color: black ;text-decoration: none ;"><b>Currency Strength
-                        Meter</b><br>Forex-related
-                    project with React and
-                    APIs.</a></div>
-            <div class="card"><b>DSA Problem Sheets</b><br>Solved coding challenges in C++.</div>
+
+            <div class="card">
+                <b>Currency Strength Meter</b><br>
+                Live forex strength meter using React + APIs.
+                <div class="project-links">
+                    <a href="https://csm-sigma.vercel.app/" target="_blank">🔗 Live</a>
+                    <a href="https://github.com/hill07" target="_blank">🐙 GitHub</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <b>Currency Converter</b><br>
+                Converts global currencies using real-time API.
+                <div class="project-links">
+                    <a href="YOUR_LIVE_LINK" target="_blank">🔗 Live</a>
+                    <a href="YOUR_GITHUB_LINK" target="_blank">🐙 GitHub</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <b>Project Management System</b><br>
+                Manage tasks, deadlines, and workflow using MERN.
+                <div class="project-links">
+                    <a href="YOUR_LIVE_LINK" target="_blank">🔗 Live</a>
+                    <a href="YOUR_GITHUB_LINK" target="_blank">🐙 GitHub</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <b>Market Alert Note</b><br>
+                Real-time alert + notes system for markets.
+                <div class="project-links">
+                    <a href="YOUR_LIVE_LINK" target="_blank">🔗 Live</a>
+                    <a href="YOUR_GITHUB_LINK" target="_blank">🐙 GitHub</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <b>E-Learning System</b><br>
+                Your full BCA final-year project.
+                <div class="project-links">
+                    <a href="YOUR_LIVE_LINK" target="_blank">🔗 Live</a>
+                    <a href="YOUR_GITHUB_LINK" target="_blank">🐙 GitHub</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
-
-    <!-- Education Section -->
+    <!-- EDUCATION -->
     <section id="education">
         <h2>Education</h2>
         <div class="card-container">
-            <div class="card"><b>BCA</b><br>Sutex Bank College of Computer Applications & Science, VNSGU (CGPA 8.41,
-                May 2025)</div>
-            <div class="card"><b>HSC</b><br>J.B. Diamond and Karp Vidhya Sankul, Gujarat (80.33%, 2021–2022)</div>
-            <div class="card"><b>SSC</b><br>J.B. Diamond and Karp Vidhya Sankul, Gujarat (89.85%, 2019–2020)</div>
-        </div>
-    </section>
-    
-     <!-- Certificate Section -->
-    <section id="Certificate">
-        <h2>Certificate</h2>
-        <div class="card-container">
-            <div class="card"><b>Financial Modeling & Valuation</b><br>From - tutedude</div>
+            <div class="card"><b>BCA</b><br>Sutex Bank College, CGPA 8.41 (2025)</div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- CERTIFICATES -->
+    <section id="certificate">
+        <h2>Certificates</h2>
+        <div class="card-container">
+            <div class="card"><b>Financial Modeling & Valuation</b><br>From Tutedude</div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
     <section id="contact" class="contact">
         <h2>Contact</h2>
-        <a href="tel:9974278409">📞9974278409</a>
+        <a href="tel:9974278409">📞 Call</a>
         <a href="mailto:hillbalar@gmail.com">📧 Email</a>
         <a href="https://www.linkedin.com/in/hil-balar-418695290/" target="_blank">💼 LinkedIn</a>
         <a href="https://github.com/hill07" target="_blank">🐙 GitHub</a>
     </section>
-    <!-- Footer -->
+
     <footer>
         © 2025 Hill Balar | All Rights Reserved
     </footer>
@@ -283,16 +305,6 @@
             document.body.classList.toggle("night-mode");
         }
     </script>
+
 </body>
-
-
 </html>
-
-
-
-
-
-
-
-
-
